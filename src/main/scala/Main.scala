@@ -1,5 +1,8 @@
-@main def hello: Unit = 
-  println("Hello world!")
-  println(msg)
+import java.io._
+import scala.io._
 
-def msg = "I was compiled by Scala 3. :)"
+var lines = Source.fromFile("""input.txt""").getLines.toIndexedSeq
+
+@main def hello: Unit =
+	println(Day11.run(lines))
+	println(Day11.run2(lines))

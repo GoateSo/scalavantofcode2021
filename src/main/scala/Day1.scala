@@ -1,27 +1,11 @@
 object Day1:
-  /**
-   * solution for pt 1 of day 1
-   */
+  def solve(xs : Seq[Int]) : Int =
+    xs.sliding(2).filter(xs => xs(0) < xs(1)).length
+  
+  // pt1 solution 
   def run(lines : IndexedSeq[String]) =
-    lines.map(_.toInt)
-         .sliding(2)
-         .toList
-         .filter {
-            case Seq(a, b) if a < b => true
-            case _ => false
-         }.length
-  /**
-   * solution for pt 2 of day 1
-   */
+    solve(lines.map(_.toInt))
+  
+  // pt2 solution
   def run2(lines : IndexedSeq[String]) = 
-    lines
-      .map(_.toInt)
-      .sliding(3)
-      .map(_.sum)
-      .toList
-      .sliding(2)
-      .filter {
-        case List(a, b) if a < b => true
-        case _                   => false
-      }
-      .length
+    solve(lines.map(_.toInt).sliding(3).map(_.sum).toSeq)

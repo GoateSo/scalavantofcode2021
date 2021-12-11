@@ -11,9 +11,9 @@ lazy val root = project
       "-color",
       "always"
     ),
-	commands += Command.command("cls") { state =>
-	print("\u001bc")
-	state
-	},
+  commands += Command.command("cls") { state =>
+    print("\u001bc")
+    state
+  },
     libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
   )
