@@ -1,25 +1,24 @@
-object Day8:
+class Day8(lines : IndexedSeq[String]):
   import scala.collection.mutable.HashMap
 
-  def commons(a : String, b : Int)(using xs : HashMap[Int,Set[Char]]) =
+  private val inputs = 
+    lines.map(_.split(" \\| ").map(_.trim.split(" ").toList))
+
+  private def commons(a : String, b : Int)(using xs : HashMap[Int,Set[Char]]) =
     (a.toSet & xs(b)).size
 
-  def find(p : String => Boolean)(using xs : List[String]) : Set[Char] =
+  private def find(p : String => Boolean)(using xs : List[String]) : Set[Char] =
     xs.find(p).get.toSet
 
-  def len(len : Int*) =
+  private def len(len : Int*) =
     (x : String) => len.toSet(x.length)
 
-  def run(lines : IndexedSeq[String]) = 
-    val xs = 
-      for line <- lines yield
-        val Array(left,right)= line.split(" \\| ").map(_.trim.split(" ").toList)
-        right.filter(len(2,3,4,7)).length
-    xs.sum
+  def run = 
+    inputs.map(_(1).filter(len(2,3,4,7)).length).sum
 
-  def run2(lines : IndexedSeq[String]) =
-    (for line <- lines yield
-      val Array(left,right)= line.split(" \\| ").map(_.trim.split(" ").toList)
+  def run2 =
+    (for Array(left, right) <- inputs yield
+      //val Array(left,right)= line.split(" \\| ").map(_.trim.split(" ").toList)
       given zs : List[String] = left
       given xs : HashMap[Int, Set[Char]] = HashMap(
         1 -> find(len(2)),

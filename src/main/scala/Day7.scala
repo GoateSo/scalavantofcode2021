@@ -1,8 +1,7 @@
-object Day7:
-  def parse(lines : IndexedSeq[String]) = 
-    lines.head.split(",").map(_.toInt)
+class Day7(lines : IndexedSeq[String]):
+  val xs = lines.head.split(",").map(_.toInt)
     
-  def solv(xs : Array[Int], cost : Int => Int) =
+  def solv(cost : Int => Int) =
     val mi = xs.min
     val ma = xs.max
     (mi to ma).map { i =>
@@ -11,8 +10,8 @@ object Day7:
       }.sum 
     }.min      
   
-  def run(lines : IndexedSeq[String]) = 
-    solv(parse(lines), identity)
+  def run = 
+    solv(identity)
 
-  def run2(lines : IndexedSeq[String]) =
-    solv(parse(lines), n => n * (n + 1) / 2)
+  def run2 =
+    solv(n => n * (n + 1) / 2)

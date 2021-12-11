@@ -1,4 +1,4 @@
-object Day10: 
+class Day10(lines : IndexedSeq[String]): 
   import scala.collection.mutable.Stack
 
   val comp = Map('(' -> ')','[' -> ']','{' -> '}','<' -> '>')
@@ -15,13 +15,13 @@ object Day10:
     (if stk.isEmpty then 'p' else 'a', stk)
 
 
-  def run(lines : IndexedSeq[String]) = 
+  def run = 
     // sum of scores
     lines.map(s => 
       scores.getOrElse(validParen(s)._1, 0)
     ).sum
 
-  def run2(lines : IndexedSeq[String]) =
+  def run2 =
     // get complements needed
     val xs = lines map validParen filter (_._1 == 'a') map (_._2)
     // find scores of complements

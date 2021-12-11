@@ -1,7 +1,9 @@
-object Day6:
-  def solve(steps : Int)(lines : IndexedSeq[String]) = 
+class Day6(lines : IndexedSeq[String]):
+  val is = lines.head.split(",").map(_.toInt)
+  
+  def solve(steps : Int) = 
     var xs = Array.fill(9)(0).map(_.toLong)
-    lines.head.split(",").foreach(s => xs(s.toInt) += 1)
+    is.foreach(s => xs(s) += 1)
     for i <- 0 until steps do
       val n = xs(0) 
       for j <- 0 until 8 do

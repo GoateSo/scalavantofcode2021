@@ -1,11 +1,12 @@
-object Day5:
+import scala.annotation.meta.companionClass
+class Day5(lines : IndexedSeq[String]):
   val r = """(-?\d+),(-?\d+) -> (-?\d+),(-?\d+)""".r 
-  
-  def parse(lines : IndexedSeq[String]) = 
-    lines.map {case r(x,y,a,b) => (x.toInt,y.toInt,a.toInt,b.toInt)}
+  val inputs = lines.map {case r(x,y,a,b) => (x.toInt,y.toInt,a.toInt,b.toInt)}
+  val map = Array.fill(1000,1000)(0)
+
+  def comp(x : Int, y : Int, a : Int, b : Int) = a==x || y==b
 
   def fillWith(xs : IndexedSeq[(Int,Int,Int,Int)]) = 
-    val map = Array.fill(1000,1000)(0)
     for ps <- xs do
       var (x,y,a,b) = ps
       var dx = (a-x).sign
@@ -18,8 +19,9 @@ object Day5:
         cond
       do {} 
     map
-  def run(lines : IndexedSeq[String]) =
-    fillWith(parse(lines).filter((x,y,a,b) => a==x || y==b)).flatten.count(_ > 1)
 
-  def run2(lines : IndexedSeq[String]) = 
-    fillWith(parse(lines)).flatten.count(_ > 1)
+  def run =
+    fillWith(inputs.filter(comp)).flatten.count(_ > 1)
+
+  def run2 = 
+    fillWith(inputs.filterNot(comp)).flatten.count(_ > 1)

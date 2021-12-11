@@ -1,23 +1,21 @@
-object Day2:
-  // pt1 sol to be recreated
-  def parse(lines : IndexedSeq[String]) = 
-    lines.map { line =>
-      val Array(a,b) = line.split(" ")
-      (a, b.toInt)
-    }
+class Day2(lines : IndexedSeq[String]):
+  private val inputs = lines.map { line =>
+    val Array(a,b) = line.split(" ")
+    (a, b.toInt)
+  }
     
-  def run(lines : IndexedSeq[String]) =
+  def run=
     var x,y = 0
-    for (cmd, n) <- parse(lines) do
+    for (cmd, n) <- inputs do
       cmd match
         case "up"   => 		y -= n
         case "down" => 		y += n
         case "forward" => x += n
     x * y
     
-  def run2(lines : IndexedSeq[String]) =
+  def run2 =
     var x,y,aim = 0
-    for (cmd, n) <- parse(lines) do
+    for (cmd, n) <- inputs do
       cmd match
         case "up"   => aim -= n
         case "down" => aim += n
