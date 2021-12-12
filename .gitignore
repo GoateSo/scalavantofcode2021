@@ -50,3 +50,5 @@ hs_err_pid*
 # End of https://www.toptal.com/developers/gitignore/api/scala,visualstudiocode,sbt,metals
 input.txt
 .bsp/sbt.json
+.vscode/settings.json
+.vscode/settings.json

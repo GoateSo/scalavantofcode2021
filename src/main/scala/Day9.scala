@@ -1,7 +1,7 @@
 class Day9(lines : IndexedSeq[String]):
   import scala.collection.mutable.HashSet
   import scala.collection.mutable.ListBuffer
-  private type ISeq[T] = IndexedSeq[T]
+  type ISeq[T] = IndexedSeq[T]
   private val arr : ISeq[ISeq[Char]] = lines.map(_.toIndexedSeq)
 
   private val xs = for 

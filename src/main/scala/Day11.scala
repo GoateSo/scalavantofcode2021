@@ -31,4 +31,3 @@ class Day11(lines : IndexedSeq[String]):
       flash
       times += 1
     times
-
