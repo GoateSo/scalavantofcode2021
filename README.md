@@ -2,4 +2,4 @@
 
 ### Notes
 
-the given solutions have been modified to look more presentable and are not the original solutions (they have a small chance of being broken :p)
+the given solutions have been modified since they are written (they have a small chance of being broken :p)
