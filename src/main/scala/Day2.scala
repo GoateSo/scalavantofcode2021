@@ -4,7 +4,7 @@ class Day2(lines : IndexedSeq[String]):
     (a, b.toInt)
   }
     
-  def run=
+  lazy val run=
     var x,y = 0
     for (cmd, n) <- inputs do
       cmd match
@@ -13,7 +13,7 @@ class Day2(lines : IndexedSeq[String]):
         case "forward" => x += n
     x * y
     
-  def run2 =
+  lazy val run2 =
     var x,y,aim = 0
     for (cmd, n) <- inputs do
       cmd match

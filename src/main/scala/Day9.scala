@@ -1,7 +1,8 @@
+import scala.collection.mutable.HashSet
+
 class Day9(lines : IndexedSeq[String]):
-  import scala.collection.mutable.HashSet
-  import scala.collection.mutable.ListBuffer
   type ISeq[T] = IndexedSeq[T]
+  
   private val arr : ISeq[ISeq[Char]] = lines.map(_.toIndexedSeq)
 
   private val xs = for 
@@ -28,11 +29,11 @@ class Day9(lines : IndexedSeq[String]):
         1 + n.map(dfs(_,_,visited)).sum
 
   // part 1 solution; find all minimums and sum their risks (value + 1)
-  def run = 
+  lazy val run = 
     xs.map(arr(_)(_) - '0' + 1).sum
 
   // part 2 solution; product of the sizes of largest 3 basins
-  def run2 =
+  lazy val run2 =
     xs.map(dfs(_,_,HashSet.empty))
         .sortWith(_ > _)
         .take(3).product

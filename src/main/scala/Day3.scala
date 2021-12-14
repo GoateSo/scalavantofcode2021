@@ -1,7 +1,8 @@
+import Utils.toInt
+
 class Day3(lines : IndexedSeq[String]):
-  import Utils.toInt
-  // pt1 sol to be recreated
-  def run = 
+  
+  lazy val run = 
     var cs = (0 until 12).map {i => 
       if lines.map(_(i)).count(_=='0') > 500
         then 1
@@ -11,7 +12,7 @@ class Day3(lines : IndexedSeq[String]):
     
     cs.toInt(2) * cs$.toInt(2)
     
-  def run2 =
+  lazy val run2 =
     var as, bs = lines // o2, co2
     // find frequencies at char i
     for i <- 0 until 12 do

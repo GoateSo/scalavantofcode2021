@@ -1,6 +1,6 @@
-class Day8(lines : IndexedSeq[String]):
-  import scala.collection.mutable.HashMap
+import scala.collection.mutable.HashMap
 
+class Day8(lines : IndexedSeq[String]):
   private val inputs = 
     lines.map(_.split(" \\| ").map(_.trim.split(" ").toList))
 
@@ -13,10 +13,10 @@ class Day8(lines : IndexedSeq[String]):
   private def len(len : Int*) =
     (x : String) => len.toSet(x.length)
 
-  def run = 
+  lazy val run = 
     inputs.map(_(1).filter(len(2,3,4,7)).length).sum
 
-  def run2 =
+  lazy val run2 =
     (for Array(left, right) <- inputs yield
       //val Array(left,right)= line.split(" \\| ").map(_.trim.split(" ").toList)
       given zs : List[String] = left

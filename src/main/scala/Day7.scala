@@ -1,11 +1,15 @@
 class Day7(lines : IndexedSeq[String]):
-  val xs = lines.head.split(",").map(_.toInt)
+  //get crab positions
+  private val xs = lines.head.split(",").map(_.toInt)
     
-  def solv(cost : Int => Int) =
+  // solve problem given a cost function for each distance
+  private def solve(cost : Int => Int) =
     (xs.min to xs.max).map { i =>
       xs.map {x => cost(Math.abs(i-x))}.sum 
     }.min      
   
-  def run = solv(identity)
+  // solves w/ linear distance
+  lazy val run = solve(identity)
 
-  def run2 = solv(n => n * (n + 1) / 2)
+  // solves w/ summed distance
+  lazy val run2 = solve(n => n * (n + 1) / 2)

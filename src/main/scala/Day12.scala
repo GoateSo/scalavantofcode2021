@@ -1,34 +1,38 @@
-import scala.collection.mutable.HashMap
-import scala.collection.mutable.ArrayBuffer
-import scala.collection.mutable.HashSet
+import scala.collection.mutable.{Buffer, HashMap, HashSet}
 
 class Day12(lines : IndexedSeq[String]):
-  val alph = "[a-zA-z]"
-  val r = s"($alph+)-($alph+)".r
+  private val graph = HashMap[String,Buffer[String]]()
 
-  val adjList = HashMap[String,ArrayBuffer[String]]()
+  // initlize adjacency list
   for Array(a,b) <- lines.map(_.split("-")) do
-    adjList.getOrElseUpdate(a,ArrayBuffer[String]()) += b
-    adjList.getOrElseUpdate(b,ArrayBuffer[String]()) += a
+    graph.getOrElseUpdate(a,Buffer()) += b
+    graph.getOrElseUpdate(b,Buffer()) += a
   
-  def dfs(v : String, visited : HashMap[String, Int], used : Boolean) : Int = 
+  // depth first traversal for finding all paths
+  private def dfs(v : String, visited : HashMap[String, Int], used : Boolean) : Int = 
+    // if at end; return successful path
     if (v == "end") 1
     else
+      // increment visits if lowercase
       if (v(0).isLower) visited(v) += 1
       var n = 0
-      for w <- adjList(v) do
+      for w <- graph(v) do
+        // if its able to be used again (pt 2)
         val op = visited(w) == 1 && !used
         if visited(w) < 1 || op then
           n += dfs(w,visited, used || op)
       visited(v) -= 1
       n
 
-  def mkMap = 
+  private def mkMap = 
     val map = HashMap[String,Int]()
-    for (node,_) <- adjList do
+    for (node,_) <- graph do
       map(node) = 0
     map("start") = 2
     map
 
-  def run = dfs("start",mkMap, true)
-  def run2 = dfs("start", mkMap, false)
+  // visit each small cave once and only once
+  lazy val run = dfs("start", mkMap, true)
+
+  // allowed to go to 1 small cave twice
+  lazy val run2 = dfs("start", mkMap, false)
