@@ -22,10 +22,8 @@ class Day14(lines : IndexedSeq[String]):
   private def polymerize = 
     // get copy of pair occurences and refresh all values to 0
     val cpy = ocs.clone.map((a,_) => (a,BigInt(0)))
-
     // go through all pairs with values
     for (pair, ocr) <- ocs if ocr != 0 do
-
       // find value to insert and add its occurences
       val between = hm(pair)
       ocs2(between(0)) += ocr
