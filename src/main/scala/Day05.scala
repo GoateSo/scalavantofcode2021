@@ -19,9 +19,9 @@ class Day5(lines : IndexedSeq[String]):
       do {} 
     map
 
-  // implementation relies on running run2 after run
-  lazy val run =
+  // non lazy as it relies on run1 being before run2
+  val run =
     fillWith(inputs.filter(comp)).flatten.count(_ > 1)
 
-  lazy val run2 = 
+  val run2 = 
     fillWith(inputs.filterNot(comp)).flatten.count(_ > 1)
