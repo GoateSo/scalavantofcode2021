@@ -1,6 +1,7 @@
+package solutions
 import scala.collection.mutable.{Buffer, HashMap, HashSet}
 
-class Day12(lines : IndexedSeq[String]):
+class Day12(lines : IndexedSeq[String]) extends Solution(lines):
   private val graph = HashMap[String,Buffer[String]]()
 
   // initlize adjacency list
@@ -32,7 +33,7 @@ class Day12(lines : IndexedSeq[String]):
     map
 
   // visit each small cave once and only once
-  lazy val run = dfs("start", mkMap, true)
+  val run = dfs("start", mkMap, true).toString
 
   // allowed to go to 1 small cave twice
-  lazy val run2 = dfs("start", mkMap, false)
+  val run2 = dfs("start", mkMap, false).toString

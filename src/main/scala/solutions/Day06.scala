@@ -1,4 +1,5 @@
-class Day6(lines : IndexedSeq[String]):
+package solutions
+class Day6(lines : IndexedSeq[String]) extends Solution(lines):
   private val is = lines.head.split(",").map(_.toInt)
   
   private def solve(steps : Int) = 
@@ -12,7 +13,7 @@ class Day6(lines : IndexedSeq[String]):
       xs(6) += n
     xs.sum
     
-  lazy val run = solve(80)
+  val run = solve(80).toString
 
-  lazy val run2 = solve(256)
+  val run2 = solve(256).toString
     

@@ -1,8 +1,9 @@
-import Utils.toInt
+package solutions
+import utils.Utils.toInt
 
-class Day3(lines : IndexedSeq[String]):
+class Day3(lines : IndexedSeq[String]) extends Solution(lines):
   
-  lazy val run = 
+  val run = 
     var cs = (0 until 12).map {i => 
       if lines.map(_(i)).count(_=='0') > 500
         then 1
@@ -10,9 +11,9 @@ class Day3(lines : IndexedSeq[String]):
     }.mkString
     var cs$ = cs.map(Map('1'->'0','0'->'1'))
     
-    cs.toInt(2) * cs$.toInt(2)
+    (cs.toInt(2) * cs$.toInt(2)).toString
     
-  lazy val run2 =
+  val run2 =
     var as, bs = lines // o2, co2
     // find frequencies at char i
     for i <- 0 until 12 do
@@ -31,4 +32,4 @@ class Day3(lines : IndexedSeq[String]):
 
       val b = bs.filter(_(i) == m2c)
       if b.size > 0 then bs = b
-    as.head.toInt(2) * bs.head.toInt(2)
+    (as.head.toInt(2) * bs.head.toInt(2)).toString

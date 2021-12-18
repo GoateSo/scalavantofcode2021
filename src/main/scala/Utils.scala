@@ -1,3 +1,4 @@
+package utils
 import scala.util._
 import scala.math._
 import scala.util.matching._
@@ -12,6 +13,10 @@ object Utils:
   extension (n: Double) def **(m: Double) = Math.pow(n, m)
 
   extension (str: String)
+    def apply(start: Int, end: Int) = str.substring(start, end)
+    def toLong = java.lang.Long.parseLong(str)
+    def toLong(radix: Int) = java.lang.Long.parseLong(str, radix)
+    def toInt = Integer.parseInt(str)
     def toInt(radix: Int) = Integer.parseInt(str, radix)
     def gsub(reg: Regex, f: Seq[String] => String) =
       reg.replaceAllIn(

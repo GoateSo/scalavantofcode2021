@@ -1,4 +1,5 @@
-class Day5(lines : IndexedSeq[String]):
+package solutions
+class Day5(lines : IndexedSeq[String]) extends Solution(lines):
   private val r = """(-?\d+),(-?\d+) -> (-?\d+),(-?\d+)""".r 
   private val inputs = lines.map {case r(x,y,a,b) => (x.toInt,y.toInt,a.toInt,b.toInt)}
   private val map = Array.fill(1000,1000)(0)
@@ -21,7 +22,7 @@ class Day5(lines : IndexedSeq[String]):
 
   // non lazy as it relies on run1 being before run2
   val run =
-    fillWith(inputs.filter(comp)).flatten.count(_ > 1)
+    fillWith(inputs.filter(comp)).flatten.count(_ > 1).toString
 
   val run2 = 
-    fillWith(inputs.filterNot(comp)).flatten.count(_ > 1)
+    fillWith(inputs.filterNot(comp)).flatten.count(_ > 1).toString

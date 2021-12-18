@@ -1,6 +1,7 @@
-import Utils.MinPq
+package solutions
+import utils.Utils.MinPq
 
-class Day15(lines: IndexedSeq[String]):
+class Day15(lines: IndexedSeq[String]) extends Solution(lines):
   val arr1 = lines.toArray.map(_.map(_ - '0').toArray)
   val nar = Array.fill(5 * arr1.size, 5 * arr1.size)(0)
 
@@ -42,6 +43,6 @@ class Day15(lines: IndexedSeq[String]):
             if !vs.map.contains(nei) then vs += ((i, j), fscor(i)(j))
     dists(arr.size - 1)(arr.size - 1)
 
-  val run = findpath(arr1)
+  val run = findpath(arr1).toString
 
-  val run2 = findpath(arr)
+  val run2 = findpath(arr).toString

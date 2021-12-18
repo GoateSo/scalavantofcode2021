@@ -1,6 +1,7 @@
+package solutions
 import scala.collection.mutable.HashSet
 
-class Day13(lines : IndexedSeq[String]):
+class Day13(lines : IndexedSeq[String]) extends Solution(lines):
   val set = HashSet[(Int,Int)]()
   val (dots, _ +: folds) = lines.span(_ != "")
   
@@ -33,7 +34,7 @@ class Day13(lines : IndexedSeq[String]):
   
 
   // # points after first fold
-  lazy val run = fst.get
+  val run = fst.get.toString
 
   // text after all fold
-  lazy val run2 = "\n" ++ arr.map(_.mkString).mkString("\n")
+  val run2 = "\n" ++ arr.map(_.mkString).mkString("\n")

@@ -1,6 +1,7 @@
+package solutions
 import scala.collection.mutable.Stack
 
-class Day10(lines : IndexedSeq[String]): 
+class Day10(lines : IndexedSeq[String]) extends Solution(lines): 
 
   private val comp = Map('(' -> ')','[' -> ']','{' -> '}','<' -> '>')
   private val sc = Map(')' -> 1,']' -> 2,'}' -> 3,'>' -> 4)
@@ -16,14 +17,14 @@ class Day10(lines : IndexedSeq[String]):
     (if stk.isEmpty then 'p' else 'a', stk)
 
 
-  lazy val run = 
+  val run = 
     // sum of scores
     lines.map(s => 
       scores.getOrElse(validParen(s)._1, 0)
-    ).sum
+    ).sum.toString
 
-  lazy val run2 =
+  val run2 =
     // get complements needed and tally up scores
     val xs = lines map validParen filter (_._1 == 'a') map (_._2)
     val ys = xs map (_.foldLeft(0l)((acc,c) => acc * 5 + sc(comp(c))))
-    ys.sorted.apply(ys.length/2)
+    ys.sorted.apply(ys.length/2).toString

@@ -1,6 +1,7 @@
+package solutions
 import scala.collection.mutable.HashMap
 
-class Day8(lines : IndexedSeq[String]):
+class Day8(lines : IndexedSeq[String]) extends Solution(lines):
   private val inputs = 
     lines.map(_.split(" \\| ").map(_.trim.split(" ").toList))
 
@@ -13,10 +14,10 @@ class Day8(lines : IndexedSeq[String]):
   private def len(len : Int*) =
     (x : String) => len.toSet(x.length)
 
-  lazy val run = 
-    inputs.map(_(1).filter(len(2,3,4,7)).length).sum
+  val run = 
+    inputs.map(_(1).filter(len(2,3,4,7)).length).sum.toString
 
-  lazy val run2 =
+  val run2 =
     (for Array(left, right) <- inputs yield
       //val Array(left,right)= line.split(" \\| ").map(_.trim.split(" ").toList)
       given zs : List[String] = left
@@ -41,4 +42,4 @@ class Day8(lines : IndexedSeq[String]):
       val ys = xs map {(a,b) => (b,a)}
       // convert 4 digit values to 4 digit ints
       right.map(x => ys(x.toSet)).mkString.toInt
-    ).sum
+    ).sum.toString

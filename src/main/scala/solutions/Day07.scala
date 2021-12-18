@@ -1,4 +1,5 @@
-class Day7(lines : IndexedSeq[String]):
+package solutions
+class Day7(lines : IndexedSeq[String]) extends Solution(lines):
   //get crab positions
   private val xs = lines.head.split(",").map(_.toInt)
     
@@ -9,7 +10,7 @@ class Day7(lines : IndexedSeq[String]):
     }.min      
   
   // solves w/ linear distance
-  lazy val run = solve(identity)
+  val run = solve(identity).toString
 
   // solves w/ summed distance
-  lazy val run2 = solve(n => n * (n + 1) / 2)
+  val run2 = solve(n => n * (n + 1) / 2).toString

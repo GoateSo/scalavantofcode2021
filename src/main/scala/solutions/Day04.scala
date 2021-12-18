@@ -1,7 +1,8 @@
+package solutions
 import scala.collection.mutable.{HashSet, ArrayBuffer}
-import Utils.columns
+import utils.Utils.columns
 
-class Day4(lines : IndexedSeq[String]):
+class Day4(lines : IndexedSeq[String]) extends Solution(lines):
   private val nums = lines.head.split(",").map(_.toInt)
   private val scores = ArrayBuffer[Int]()     
   private val set = HashSet[Int]() //set for existing numbers
@@ -26,7 +27,7 @@ class Day4(lines : IndexedSeq[String]):
       scores += n * (bord.get.flatten.filterNot(set.contains).sum) // print scores
 
   // solution for part 1
-  lazy val run = scores.head
+  val run = scores.head.toString
 
   // solution for part 2
-  lazy val run2 = scores.last
+  val run2 = scores.last.toString

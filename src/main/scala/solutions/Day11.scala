@@ -1,4 +1,5 @@
-class Day11(lines : IndexedSeq[String]):
+package solutions
+class Day11(lines : IndexedSeq[String]) extends Solution(lines):
   private val grid = lines.map(_.map(_-'0').toArray).toArray
   private val l = grid.size
   private val w = grid(0).size
@@ -30,14 +31,14 @@ class Day11(lines : IndexedSeq[String]):
     flashes
   
   // how many flashes after 100 turns
-  lazy val run = 
-    (1 to 100).map(_ => flash).sum
+  val run = 
+    (1 to 100).map(_ => flash).sum.toString
 
   // amount of turns until homogenous 
-  lazy val run2 =  
+  val run2 =  
     var times = 0    
     // flash until exhausted
     while grid.flatten.toSet.size > 1 do
       flash
       times += 1
-    times + 100 // account for flashes in part 1
+    (times + 100).toString // account for flashes in part 1

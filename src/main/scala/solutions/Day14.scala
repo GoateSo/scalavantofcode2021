@@ -1,6 +1,7 @@
+package solutions
 import scala.collection.mutable.HashMap
 
-class Day14(lines : IndexedSeq[String]):
+class Day14(lines : IndexedSeq[String]) extends Solution(lines):
   var (str, _ +: pairs) = (lines.head,lines.tail)
 
   val hm = HashMap[String,String]()
@@ -39,12 +40,12 @@ class Day14(lines : IndexedSeq[String]):
     for _ <- 1 to 10 do
       polymerize
     val ns = ocs2.toList.map(_._2).filter(_>0)
-    ns.max - ns.min
+    (ns.max - ns.min).toString
 
   // solve part 2
   val run2 =
     for _ <- 1 to 30 do
       polymerize
     val ns = ocs2.toList.map(_._2).filter(_>0)
-    ns.max - ns.min
+    (ns.max - ns.min).toString
 
