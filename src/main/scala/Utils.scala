@@ -67,21 +67,21 @@ object Utils:
     val (mi, ma) = if b1In > b2In then (b2In, b1In) else (b1In, b2In)
     Random.between(mi, ma + 1)
 
-  class MinPq(xs: (Int, Int), priority: Int):
+  class MinPq[T](xs: T, priority: Int):
     var arr = ArrayBuffer(null, (xs, priority))
     val map = HashMap(xs -> 1)
 
     override def toString =
       arr.mkString("[", ",", "]") ++ "\n" ++ map.mkString("[", ",", "]")
 
-    def +=(n: (Int, Int), priority: Int): Unit =
+    def +=(n: T, priority: Int): Unit =
       arr += ((n, priority))
       map(n) = arr.length - 1
       swim(arr.length - 1)
 
     def top = arr(1)
 
-    def pop: ((Int, Int), Int) =
+    def pop: (T, Int) =
       val ret = arr(1)
       swap(1, arr.length - 1)
       map -= ret._1
@@ -89,10 +89,9 @@ object Utils:
       sink(1)
       ret
 
-    def decKey(n: (Int, Int), nDist: Int) =
+    def decKey(n: T, nDist: Int) =
       val i = map(n)
-      val (a, b) = n
-      arr(i) = ((a, b), nDist)
+      arr(i) = (n, nDist)
       swim(i)
 
     def swap(i: Int, j: Int): Unit =
@@ -112,9 +111,9 @@ object Utils:
       val l = i * 2
       val r = l + 1
       var smol = i
-      if l < arr.length && arr(l) != null && arr(l)._2 < arr(smol)._2 then
+      if l < arr.length && arr(l)._2 < arr(smol)._2 then
         smol = l
-      if r < arr.length && arr(r) != null && arr(r)._2 < arr(smol)._2 then
+      if r < arr.length && arr(r)._2 < arr(smol)._2 then
         smol = r
       if smol != i then
         swap(i, smol)
