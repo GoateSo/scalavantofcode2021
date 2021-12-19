@@ -1,6 +1,9 @@
 package solutions
 import scala.collection.mutable.HashSet
 
+/**
+ * find minimums and do Depth First Traversal from each minimum to find size of basin
+ */
 class Day9(lines : IndexedSeq[String]) extends Solution(lines):
   type ISeq[T] = IndexedSeq[T]
   

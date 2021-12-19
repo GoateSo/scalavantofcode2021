@@ -1,6 +1,9 @@
 package solutions
 import scala.collection.mutable.HashMap
 
+/**
+ * pain
+ */
 class Day8(lines : IndexedSeq[String]) extends Solution(lines):
   private val inputs = 
     lines.map(_.split(" \\| ").map(_.trim.split(" ").toList))

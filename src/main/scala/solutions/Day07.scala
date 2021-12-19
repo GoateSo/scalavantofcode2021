@@ -1,4 +1,8 @@
 package solutions
+
+/**
+ * find culmulative costs for movement w/ uniform and summed costs 
+ */
 class Day7(lines : IndexedSeq[String]) extends Solution(lines):
   //get crab positions
   private val xs = lines.head.split(",").map(_.toInt)

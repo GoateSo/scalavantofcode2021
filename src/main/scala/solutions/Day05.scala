@@ -1,4 +1,8 @@
 package solutions
+
+/**
+ * draw out each line on grid and find the points that are reached > 1 times
+ */
 class Day5(lines : IndexedSeq[String]) extends Solution(lines):
   private val r = """(-?\d+),(-?\d+) -> (-?\d+),(-?\d+)""".r 
   private val inputs = lines.map {case r(x,y,a,b) => (x.toInt,y.toInt,a.toInt,b.toInt)}

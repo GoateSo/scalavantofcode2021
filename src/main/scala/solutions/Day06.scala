@@ -1,4 +1,8 @@
 package solutions
+
+/**
+ * simulate anglerfish w/ map of occurences
+ */
 class Day6(lines : IndexedSeq[String]) extends Solution(lines):
   private val is = lines.head.split(",").map(_.toInt)
   

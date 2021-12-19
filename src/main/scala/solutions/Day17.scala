@@ -1,4 +1,8 @@
 package solutions
+
+/**
+ * simulate all plausible trajectories and get the max Y / number of trajectories
+ */
 class Day17(lines : IndexedSeq[String]) extends Solution(lines):
   val inp = raw"x=(\d+)..(\d+), y=(-\d+)..(-\d+)".r
 

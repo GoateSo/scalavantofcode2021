@@ -1,4 +1,8 @@
 package solutions
+
+/**
+ * brute force flash simulating
+ */
 class Day11(lines : IndexedSeq[String]) extends Solution(lines):
   private val grid = lines.map(_.map(_-'0').toArray).toArray
   private val l = grid.size

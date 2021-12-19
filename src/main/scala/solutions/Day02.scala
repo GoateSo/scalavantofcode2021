@@ -1,4 +1,5 @@
 package solutions
+
 class Day2(lines : IndexedSeq[String]) extends Solution(lines):
   private val inputs = lines.map { line =>
     val Array(a,b) = line.split(" ")

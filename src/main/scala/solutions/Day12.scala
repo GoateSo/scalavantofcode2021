@@ -1,6 +1,9 @@
 package solutions
 import scala.collection.mutable.{Buffer, HashMap, HashSet}
 
+/**
+ * DFS with different blocked path critera and while removing visited node 
+ */
 class Day12(lines : IndexedSeq[String]) extends Solution(lines):
   private val graph = HashMap[String,Buffer[String]]()
 

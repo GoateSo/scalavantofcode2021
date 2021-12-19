@@ -1,4 +1,8 @@
 package solutions
+
+/**
+ * finding increasing intervals through sliding
+ */
 class Day1(lines: IndexedSeq[String]) extends Solution(lines):
   private val inputs = lines.map(_.toInt)
   private def solve(xs : Seq[Int]) : Int =

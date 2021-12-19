@@ -2,7 +2,9 @@ package solutions
 import utils.Utils._
 import scala.collection.mutable.ListBuffer
 
-
+/**
+ * parse packets recursively and operate on them
+ */
 class Day16(lines : IndexedSeq[String]) extends Solution(lines):
   case class ParseResult(v : Long, version : Int, remaining : List[Char])
 

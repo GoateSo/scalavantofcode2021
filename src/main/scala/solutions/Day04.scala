@@ -2,6 +2,9 @@ package solutions
 import scala.collection.mutable.{HashSet, ArrayBuffer}
 import utils.Utils.columns
 
+/**
+ * add bingo numbers to set while checking for & filtering out solved boards
+ */
 class Day4(lines : IndexedSeq[String]) extends Solution(lines):
   private val nums = lines.head.split(",").map(_.toInt)
   private val scores = ArrayBuffer[Int]()     

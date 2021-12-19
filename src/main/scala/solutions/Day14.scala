@@ -1,6 +1,10 @@
 package solutions
 import scala.collection.mutable.HashMap
 
+
+/**
+ * simulate rounds of polymerization by keeping track of pair and individual character occurences
+ */
 class Day14(lines : IndexedSeq[String]) extends Solution(lines):
   var (str, _ +: pairs) = (lines.head,lines.tail)
 

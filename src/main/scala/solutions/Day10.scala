@@ -1,6 +1,9 @@
 package solutions
 import scala.collection.mutable.Stack
 
+/**
+ * parsing each line and determining failure location or needed complement
+ */
 class Day10(lines : IndexedSeq[String]) extends Solution(lines): 
 
   private val comp = Map('(' -> ')','[' -> ']','{' -> '}','<' -> '>')

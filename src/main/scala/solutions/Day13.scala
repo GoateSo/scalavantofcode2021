@@ -1,6 +1,9 @@
 package solutions
 import scala.collection.mutable.HashSet
 
+/**
+ * parse inputs and fold by symmetrically removing and readding dots across fold line using set
+ */
 class Day13(lines : IndexedSeq[String]) extends Solution(lines):
   val set = HashSet[(Int,Int)]()
   val (dots, _ +: folds) = lines.span(_ != "")
