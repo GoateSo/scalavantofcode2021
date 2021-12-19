@@ -5,7 +5,7 @@ import utils.Utils.print
 import solutions._
 
 @main def main: Unit =
-  for i <- 0 until 17 do
+  for i <- 17 until 18 do
     var lines = 
       Source.fromFile(s"inputs\\input${i+1}.txt")
         .getLines

@@ -18,5 +18,6 @@ object Solutions:
     Day14(_),
     Day15(_),
     Day16(_),
-    Day17(_)
+    Day17(_),
+    Day18Method2(_)
   )
